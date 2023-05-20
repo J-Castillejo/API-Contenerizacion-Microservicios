@@ -2,7 +2,9 @@ version: "3.9"
 services:
   microservicio:
     container_name: microservicio
-    image: jhanherrera/api-microservicio:v2
+    image: jhanherrera/api-microservicio:v3
+    build:
+      context: .
     ports:
       - "4002:4002" 
     networks:
