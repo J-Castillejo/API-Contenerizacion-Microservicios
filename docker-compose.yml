@@ -6,7 +6,25 @@ services:
     build:
       context: .
     ports:
-      - "4002:4002" 
+      - "4002" 
+    networks:
+      - microservicio
+
+  microservicio-2:
+    container_name: microservicio-2
+    image: jhanherrera/api-microservicio:v3
+    ports:
+      - "4002"
+    networks:
+      - microservicio
+
+  balanceador:
+    container_name: balanceador-carga
+    image: balanceador-carga:v1
+    build:
+      context: ./balanceador
+    ports:
+      - "4004:80"
     networks:
       - microservicio
 
