@@ -10,6 +10,7 @@ const proyectoController = {
     find: async (req, res) => {
 
         try {
+            console.log('PETICIÓN...');
             const proyecto = await Proyecto.find().
                 populate([
                     { path: 'cliente', select: 'nombre email' },
@@ -29,7 +30,7 @@ const proyectoController = {
     findById: async (req, res) => {
 
         try {
-            
+            console.log("Petición...")
             const proyecto = await Proyecto.findById(req.params.id).
                 populate([
                     { path: 'cliente', select: 'nombre email' },
